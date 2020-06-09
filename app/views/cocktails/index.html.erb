@@ -1,0 +1,29 @@
+<div class='banner'>
+  <div class="banner-container">
+    <h1> Cocktail list </h1>
+    <%# <br>
+    <br> %>
+    <%= link_to "Create New Cocktail", new_cocktail_path, class:'btn btn-dark' %>
+  </div>
+</div>
+
+<div class='row cards-container justify-content-center'>
+  <%  @cocktails.each do  |cocktail| %>  
+  <div class="cards m-2" style="width: 500px;">
+    <div class="image">
+      <img class="card-img-top" src="https://source.unsplash.com/random/400x200" alt="Card image cap">
+    </div>
+    <div class="card-body d-flex">
+      <h5 class="card-title" style="width: 300px;"><%= link_to cocktail.name, cocktail_path(cocktail) %></h5>
+      <br>
+      <%= link_to "Edit Ingredient", cocktail_path(cocktail), class: "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+  
+<%# <div>
+  <ul>
+    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+  <%# </ul>
+</div> %>

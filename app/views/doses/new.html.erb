@@ -1,0 +1,15 @@
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class='col-6'>
+      <h2>Make a <%= @cocktail.name %> </h2>
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.association :ingredient, collection: Ingredient.order('name ASC') %>
+        <%= f.submit %>
+      <% end %>
+      <br>
+      <%= link_to "Back", cocktails_path,  class:'btn btn-primary' %>
+    </div>
+  </div>
+</div>
